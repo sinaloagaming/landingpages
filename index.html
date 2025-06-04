@@ -1,11 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sinaloa Gaming</title>
-</head>
-<body>
+    <title>Sinaloa Gaming - Comunidad de Gaming en Sinaloa</title>
     
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Sinaloa Gaming - La comunidad de gaming más grande de Sinaloa. Únete a nosotros en nuestras plataformas sociales y vive la experiencia gaming.">
+    <meta name="keywords" content="sinaloa gaming, gaming sinaloa, videojuegos, comunidad gaming, esports, twitch, discord">
+    <meta name="author" content="Sinaloa Gaming">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Sinaloa Gaming - Comunidad de Gaming en Sinaloa">
+    <meta property="og:description" content="La comunidad de gaming más grande de Sinaloa. Únete a nosotros en nuestras plataformas sociales y vive la experiencia gaming.">
+    <meta property="og:image" content="https://sinaloagaming.com/statics/logo.png">
+    <meta property="og:url" content="https://sinaloagaming.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sinaloa Gaming">
+    <meta property="og:locale" content="es_MX">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sinaloa Gaming - Comunidad de Gaming en Sinaloa">
+    <meta name="twitter:description" content="La comunidad de gaming más grande de Sinaloa. Únete a nosotros en nuestras plataformas sociales.">
+    <meta name="twitter:image" content="https://sinaloagaming.com/logo.png">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="statics/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="statics/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="statics/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="statics/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="statics/favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="statics/favicon/android-chrome-512x512.png">
+    <link rel="manifest" href="statics/favicon/site.webmanifest">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Sinaloa Gaming",
+        "url": "https://sinaloagaming.com",
+        "logo": "https://sinaloagaming.com/logo.png",
+        "description": "Comunidad de gaming en Sinaloa",
+        "sameAs": [
+            "https://instagram.com/sinaloagaming",
+            "https://facebook.com/sinaloaesportsgaming",
+            "https://twitch.tv/sinaloagamingesports",
+            "https://discord.gg/E8ffQxpaAV"
+        ]
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #000000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .container {
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        .logo {
+            max-width: 300px;
+            width: 80%;
+            height: auto;
+            margin-bottom: 50px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .social-icon:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+        }
+        
+        .instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+        }
+        
+        .facebook {
+            background: #1877F2;
+        }
+        
+        .twitch {
+            background: #9146FF;
+        }
+        
+        .discord {
+            background: #5865F2;
+        }
+        
+        .social-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                max-width: 250px;
+                margin-bottom: 40px;
+            }
+            
+            .social-icons {
+                gap: 20px;
+            }
+            
+            .social-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .social-icon svg {
+                width: 25px;
+                height: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                max-width: 200px;
+                margin-bottom: 30px;
+            }
+            
+            .social-icons {
+                gap: 15px;
+            }
+            
+            .social-icon {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .social-icon svg {
+                width: 22px;
+                height: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="statics/logo.jpg" alt="Sinaloa Gaming Logo" class="logo">
+        
+        <div class="social-icons">
+            
+            <a href="https://twitch.tv/sinaloagamingesports" target="_blank" rel="noopener noreferrer" class="social-icon twitch" aria-label="Twitch">
+                <svg viewBox="0 0 24 24">
+                    <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/>
+                </svg>
+            </a>
+            
+            <a href="https://discord.gg/E8ffQxpaAV" target="_blank" rel="noopener noreferrer" class="social-icon discord" aria-label="Discord">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.0002 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1568 2.4189Z"/>
+                </svg>
+            </a>
+            
+                        
+            <a href="https://instagram.com/sinaloagaming" target="_blank" rel="noopener noreferrer" class="social-icon instagram" aria-label="Instagram">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+            </a>
+            
+            <a href="https://www.facebook.com/sinaloaesportsgaming" target="_blank" rel="noopener noreferrer" class="social-icon facebook" aria-label="Facebook">
+                <svg viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+            </a>
+            
+        </div>
+    </div>
 </body>
 </html>
