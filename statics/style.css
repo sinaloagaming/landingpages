@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    font-family: 'Segoe UI', 'Arial', 'Helvetica Neue', Helvetica, Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main.container {
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.logo {
+    max-width: 300px;
+    width: 80%;
+    height: auto;
+    margin-bottom: 50px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.social-icon:hover::before {
+    transform: translateX(100%);
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+}
+
+.instagram {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+}
+
+.facebook {
+    background: #1877F2;
+}
+
+.twitch {
+    background: #9146FF;
+}
+
+.discord {
+    background: #5865F2;
+}
+
+.social-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        max-width: 250px;
+        margin-bottom: 40px;
+    }
+    
+    .social-icons {
+        gap: 20px;
+    }
+    
+    .social-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .social-icon svg {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        max-width: 200px;
+        margin-bottom: 30px;
+    }
+    
+    .social-icons {
+        gap: 15px;
+    }
+    
+    .social-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .social-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+}
+.torneo-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 16px 36px;
+    background: linear-gradient(90deg, #9146FF, #1877F2);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1.3em;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    transition: background 0.3s, transform 0.2s;
+    font-family: inherit;
+}
+.torneo-btn:hover {
+    background: linear-gradient(90deg, #1877F2, #9146FF);
+    transform: translateY(-3px) scale(1.04);
+}
+
+.torneo-content {
+    max-width: 700px;
+    margin: 40px auto;
+    background: #111;
+    padding: 32px 24px;
+    border-radius: 16px;
+    color: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.torneo-banner {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+
+.torneo-bases {
+    margin: 32px 0;
+    min-height: 120px;
+    background: #181818;
+    border-radius: 8px;
+    padding: 28px 28px 20px 28px;
+    color: #ccc;
+    font-size: 1.08em;
+    text-align: left;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    border-left: 5px solid #9146FF;
+    position: relative;
+}
+
+.torneo-bases strong {
+    color: #fff;
+    font-size: 1.18em;
+    letter-spacing: 0.5px;
+}
+
+.torneo-bases a {
+    color: #6cf;
+    text-decoration: underline;
+    word-break: break-all;
+}
+
+.torneo-bases ul, .torneo-bases ol {
+    margin: 0 0 0 1.2em;
+    padding: 0;
+}
+
+.torneo-bases li {
+    margin-bottom: 0.5em;
+}
+
+.torneo-bases .hashtags {
+    font-size: 0.95em;
+    color: #888;
+    margin-top: 16px;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .torneo-content {
+        padding: 12px 2vw;
+    }
+    .torneo-bases {
+        padding: 16px 8px 12px 12px;
+    }
+}
