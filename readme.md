@@ -1,6 +1,29 @@
+<p align="center">
+  <img src="statics/logo.png" alt="Sinaloa Gaming Logo" width="220">
+</p>
+
 # Sinaloa Gaming Landing Page
 
 Landing page oficial de la comunidad **Sinaloa Gaming**.
+
+---
+
+<p align="center">
+  <a href="https://instagram.com/sinaloagaming" target="_blank">
+    <img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white" alt="Instagram">
+  </a>
+  <a href="https://facebook.com/sinaloaesportsgaming" target="_blank">
+    <img src="https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white" alt="Facebook">
+  </a>
+  <a href="https://twitch.tv/sinaloagamingesports" target="_blank">
+    <img src="https://img.shields.io/badge/Twitch-%239146FF.svg?style=for-the-badge&logo=Twitch&logoColor=white" alt="Twitch">
+  </a>
+  <a href="https://discord.gg/E8ffQxpaAV" target="_blank">
+    <img src="https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=Discord&logoColor=white" alt="Discord">
+  </a>
+</p>
+
+---
 
 ## Características
 
@@ -49,6 +72,4 @@ landingpages/
 
 ## Créditos
 
-Desarrollado por la comunidad de [Sinaloa Gaming](https://sinaloagaming.com).
-
----
+Desarrollado por la comunidad de [Sinaloa Gaming](https://sinaloagaming.com)
