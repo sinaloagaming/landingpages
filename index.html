@@ -61,7 +61,6 @@
     <!-- CSS externo -->
     <link rel="stylesheet" href="statics/style.css">
 
-
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NS97TMDWFM"></script>
     <script>
@@ -75,8 +74,61 @@
 </head>
 
 <body>
+    <!-- Partículas flotantes -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
     <main class="container">
+        
+
         <img src="statics/logo.png" alt="Sinaloa Gaming Logo" class="logo">
+
+        <!-- Anuncio destacado del torneo -->
+        <div class="tournament-announcement">
+            <div class="announcement-badge">🔥 EVENTO ACTIVO</div>
+            <h2 class="announcement-title">
+                <span class="highlight-purple">TORNEO</span>
+                <span class="highlight-red">FORTNITE</span>
+            </h2>
+            <p class="announcement-text">¡Regresa tras 2 años! Duos • 100% Gratis</p>
+            <div class="countdown-container">
+                <div class="countdown-label">Registro abierto:</div>
+                <div class="countdown-timer">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">--</span>
+                        <span class="countdown-text">Días</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">--</span>
+                        <span class="countdown-text">Hrs</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">--</span>
+                        <span class="countdown-text">Min</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <a href="torneofortnite/" class="torneo-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M9 12l2 2 4-4"/>
+                <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+            </svg>
+            ¡ÚNETE AL TORNEO!
+        </a>
 
         <div class="social-icons">
 
@@ -114,10 +166,49 @@
 
         </div>
 
-        <a href="torneofortnite/" class="torneo-btn">
-            Torneo Fortnite
-        </a>
+        <!-- Información rápida del torneo -->
+        <div class="quick-info">
+            <div class="info-item">
+                <span class="info-icon">🎮</span>
+                <span class="info-text">Duos</span>
+            </div>
+            <div class="info-item">
+                <span class="info-icon">💰</span>
+                <span class="info-text">100% Gratis</span>
+            </div>
+            <div class="info-item">
+                <span class="info-icon">🏆</span>
+                <span class="info-text">Premios Épicos</span>
+            </div>
+        </div>
     </main>
+
+    <script>
+        // Contador regresivo simple - fecha del evento: 14 de junio 2025
+        function updateCountdown() {
+            const eventDate = new Date('2025-06-14T18:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            } else {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+            }
+        }
+
+        // Actualizar cada minuto
+        updateCountdown();
+        setInterval(updateCountdown, 60000);
+    </script>
 </body>
 
 </html>
