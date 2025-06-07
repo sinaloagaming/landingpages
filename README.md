@@ -29,11 +29,14 @@ Landing page oficial de la comunidad **Sinaloa Gaming**.
 
 - Diseño responsive y moderno
 - Enlaces a redes sociales (Twitch, Discord, Instagram, Facebook)
-- Optimización SEO y meta etiquetas para redes sociales
+- Optimización SEO y meta etiquetas para redes sociales (Open Graph, Twitter Cards)
 - Accesibilidad y buenas prácticas web
-- **Fuentes sans-serif en todo el sitio**
-- **CSS centralizado en `styles.css`**
+- Fuentes sans-serif en todo el sitio
+- CSS centralizado en `styles.css`
 - Página especial para el Torneo Fortnite
+- Sitemap y robots.txt para buscadores
+- Listo para despliegue en Docker (NGINX), Jenkins y PostgreSQL
+- Recomendaciones para build y optimización
 
 ## Estructura del proyecto
 
@@ -55,14 +58,36 @@ landingpages/
 │       ├── android-chrome-192x192.png
 │       ├── android-chrome-512x512.png
 │       └── site.webmanifest
+├── sitemap.xml
+├── robots.txt
+├── Dockerfile
+├── nginx.conf
+├── docker-compose.yml
 ```
 
 ## Uso
 
 1. Clona o descarga este repositorio.
-2. Abre `index.html` en tu navegador.
+2. Abre `index.html` en tu navegador o levanta el sitio con Docker.
 3. Accede a la página del torneo en `torneofortnite/index.html`.
 4. Asegúrate de que los archivos de imágenes y favicon estén en las rutas indicadas.
+
+## Despliegue con Docker
+
+```sh
+docker-compose up -d
+```
+Esto levanta:
+- Web server NGINX (landing page)
+- Jenkins (CI/CD)
+- PostgreSQL (base de datos)
+
+## SEO y optimización
+
+- Todas las páginas incluyen meta etiquetas SEO, Open Graph y Twitter Cards.
+- Sitemap y robots.txt incluidos para buscadores.
+- Usa fuentes sans-serif y CSS centralizado.
+- Para producción, se recomienda compilar/minificar el sitio y servir desde `/build` o `/dist`.
 
 ## Personalización
 
@@ -72,4 +97,4 @@ landingpages/
 
 ## Créditos
 
-Desarrollado por la comunidad de [Sinaloa Gaming](https://sinaloagaming.com)
+Desarrollado por la comunidad de [Sinaloa Gaming](https://sinaloagaming.com).
