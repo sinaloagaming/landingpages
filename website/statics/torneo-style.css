@@ -1061,11 +1061,24 @@ body::before {
 .torneo-btn.stats-btn {
     background: linear-gradient(135deg, #2ecc71, #27ae60);
     box-shadow: 0 10px 30px rgba(46, 204, 113, 0.4);
+    transition: all 0.3s ease, opacity 0.3s ease, pointer-events 0.3s ease;
 }
 
 .torneo-btn.stats-btn:hover {
     background: linear-gradient(135deg, #27ae60, #2ecc71);
     box-shadow: 0 20px 40px rgba(46, 204, 113, 0.6), 0 0 40px rgba(46, 204, 113, 0.4);
+}
+
+.torneo-btn.stats-btn[style*="opacity: 0.5"] {
+    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+    box-shadow: 0 10px 30px rgba(127, 140, 141, 0.4);
+    transform: none !important;
+}
+
+.torneo-btn.stats-btn[style*="opacity: 0.5"]:hover {
+    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+    box-shadow: 0 10px 30px rgba(127, 140, 141, 0.4);
+    transform: none !important;
 }
 
 /* Responsive Design */

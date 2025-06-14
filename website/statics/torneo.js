@@ -81,11 +81,38 @@ function updateCountdown() {
     }
 }
 
+// Función para manejar el estado del botón de estadísticas
+function actualizarEstadoEstadisticas() {
+    const ahoraCDMX = new Date(new Date().toLocaleString("en-US", { timeZone: "America/Mexico_City" }));
+    const statsBtn = document.querySelector('.stats-btn');
+    const fechaInicioStream = new Date('2025-06-14T18:00:00-06:00');
+    const fechaActivacionEstadisticas = new Date(fechaInicioStream.getTime() + (60 * 60 * 1000)); // 1 hora después del inicio
+    
+    if (statsBtn) {
+        if (ahoraCDMX >= fechaActivacionEstadisticas) {
+            // Activar el botón
+            statsBtn.style.opacity = '1';
+            statsBtn.style.pointerEvents = 'auto';
+            statsBtn.style.cursor = 'pointer';
+            statsBtn.title = 'Ver estadísticas del torneo';
+        } else {
+            // Desactivar el botón
+            statsBtn.style.opacity = '0.5';
+            statsBtn.style.pointerEvents = 'none';
+            statsBtn.style.cursor = 'not-allowed';
+            statsBtn.title = 'Las estadísticas estarán disponibles 1 hora después del inicio del torneo';
+        }
+    }
+}
+
 // Inicialización de funciones cuando el DOM está listo
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializar y configurar intervalos
     actualizarBadgeEvento();
     setInterval(actualizarBadgeEvento, 60000);
+
+    actualizarEstadoEstadisticas();
+    setInterval(actualizarEstadoEstadisticas, 60000);
 
     mostrarTwitchSiEsHora();
     setInterval(mostrarTwitchSiEsHora, 60000);

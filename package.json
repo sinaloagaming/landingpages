@@ -1,34 +1,22 @@
 {
-  "name": "landingpages",
+  "name": "sinaloa-gaming-landing",
   "version": "1.0.0",
-  "description": "Landing page oficial de la comunidad Sinaloa Gaming, con enlaces a redes sociales, torneos, diseno responsivo. ",
-  "main": "index.js",
+  "description": "Landing page for Sinaloa Gaming",
+  "main": "deploy.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sinaloagaming/landingpages.git"
+    "deploy": "node deploy.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "sinaloa",
     "gaming",
-    "landing",
-    "esports",
-    "fortnite",
-    "comunidad",
-    "videojuegos",
-    "twitch",
-    "discord",
-    "instagra",
-    "torneo"
+    "sinaloa",
+    "landing-page"
   ],
-  "author": "josuebasurto",
+  "author": "Sinaloa Gaming",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sinaloagaming/landingpages/issues"
-  },
-  "homepage": "https://github.com/sinaloagaming/landingpages#readme"
+  "dependencies": {
+    "aws-sdk": "^2.1550.0",
+    "mime-types": "^2.1.35",
+    "dotenv": "^16.4.5"
+  }
 }
