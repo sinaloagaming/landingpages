@@ -54,8 +54,6 @@ landingpages/
 │       ├── favicon.ico
 │       ├── favicon-16x16.png
 │       ├── favicon-32x32.png
-│       ├── favicon-96x96.png
-│       ├── favicon.svg
 │       ├── apple-touch-icon.png
 │       ├── android-chrome-192x192.png
 │       ├── android-chrome-512x512.png
@@ -96,13 +94,6 @@ Esto levanta:
 - Para agregar o modificar redes sociales, edita la sección `.social-icons` en `index.html`.
 - Para cambiar estilos, edita `styles.css`.
 - Para actualizar las bases del torneo, edita el contenido de `torneofortnite/index.html`.
-
-## Favicons y compatibilidad
-
-- El proyecto incluye favicons modernos en todos los formatos relevantes: `.ico`, `.png` (16x16, 32x32, 96x96, 192x192, 512x512), `.svg` y Apple Touch.
-- Todos los archivos están en `statics/favicon/` y son referenciados correctamente en todos los `index.html`.
-- Se incluye un `site.webmanifest` para soporte PWA y Android.
-- Esto asegura compatibilidad con navegadores modernos, dispositivos móviles y buena presentación en buscadores y al anclar el sitio en el home de un dispositivo.
 
 ## Créditos
 
