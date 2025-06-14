@@ -1,0 +1,12 @@
+<!-- Agregar footer con fecha y hora de actualización -->
+<footer style="text-align: center; margin-top: 20px; font-size: 0.9em; color: #666; font-family: Arial, sans-serif; padding: 10px; border-top: 1px solid #eee;">
+  Updated: <span id="update-time">14/Jun/2025 @ 4:19 PM Americas/Mazatlan</span>
+</footer>
+
+<script>
+  // Actualiza el footer con la fecha y hora actuales (en la zona horaria de Mazatlan)
+  (function() {
+    const updateTime = new Date().toLocaleString("en-US", { timeZone: "America/Mazatlan" });
+    document.getElementById("update-time").textContent = updateTime.replace(",", " @");
+  })();
+</script> 
