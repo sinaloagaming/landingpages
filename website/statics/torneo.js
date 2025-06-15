@@ -1,23 +1,23 @@
 // Configuración del torneo
 const CONFIG = {
     // Fechas en UTC
-    FECHA_INICIO_STREAM: '2025-06-15T00:00:00Z', // 5:00 PM Culiacán (14 de junio)
-    FECHA_LIMITE_REGISTRO: '2025-06-14T20:00:00Z', // 2:00 PM Culiacán (14 de junio)
+    FECHA_INICIO_STREAM: '2024-06-14T00:00:00Z', // Fecha pasada para mostrar stream inmediatamente
+    FECHA_LIMITE_REGISTRO: '2024-06-14T00:00:00Z', // Fecha pasada para cerrar registro
     
     // Zona horaria
     ZONA_HORARIA: 'America/Mazatlan', // Zona horaria de Culiacán (UTC-6)
     
     // Intervalos de actualización (en milisegundos)
-    INTERVALO_BADGE: 60000, // 1 minuto
-    INTERVALO_ESTADISTICAS: 60000, // 1 minuto
-    INTERVALO_TWITCH: 1000, // 1 segundo
-    INTERVALO_COUNTDOWN: 1000, // 1 segundo
+    INTERVALO_BADGE: 300000, // 5 minutos
+    INTERVALO_ESTADISTICAS: 300000, // 5 minutos
+    INTERVALO_TWITCH: 5000, // 5 segundos
+    INTERVALO_COUNTDOWN: 1000, // 1 segundo (mantenemos este para el contador)
     
     // Modo de prueba (cambiar a true para probar)
-    MODO_PRUEBA: false,
+    MODO_PRUEBA: true,
     
     // Simular tiempo específico (true = simular después del evento)
-    SIMULAR_DESPUES_EVENTO: false,
+    SIMULAR_DESPUES_EVENTO: true,
     
     // Mensajes
     MENSAJES: {
@@ -34,13 +34,20 @@ const CONFIG = {
 
 // Variable global para controlar si ya se inició la recarga
 let recargaIniciada = false;
+let ultimaRecarga = 0;
+const TIEMPO_MINIMO_ENTRE_RECARGAS = 30000; // 30 segundos
 
 // Función para recargar la página
 function recargarPagina() {
-    if (!recargaIniciada && !CONFIG.SIMULAR_DESPUES_EVENTO) {
+    const ahora = Date.now();
+    if (!recargaIniciada && !CONFIG.SIMULAR_DESPUES_EVENTO && (ahora - ultimaRecarga) > TIEMPO_MINIMO_ENTRE_RECARGAS) {
         console.log('Iniciando recarga de página...');
         recargaIniciada = true;
-        window.location.reload(true);
+        ultimaRecarga = ahora;
+        // En lugar de recargar inmediatamente, esperamos 2 segundos
+        setTimeout(() => {
+            window.location.reload(true);
+        }, 2000);
     }
 }
 
@@ -216,17 +223,21 @@ function actualizarEstadoEstadisticas() {
     
     if (statsBtn) {
         if (ahora >= fechaActivacionEstadisticas) {
-            // Activar el botón
-            statsBtn.style.opacity = '1';
-            statsBtn.style.pointerEvents = 'auto';
-            statsBtn.style.cursor = 'pointer';
-            statsBtn.title = CONFIG.MENSAJES.ESTADISTICAS_DISPONIBLES;
+            // Activar el botón solo si no está activo
+            if (statsBtn.style.opacity !== '1') {
+                statsBtn.style.opacity = '1';
+                statsBtn.style.pointerEvents = 'auto';
+                statsBtn.style.cursor = 'pointer';
+                statsBtn.title = CONFIG.MENSAJES.ESTADISTICAS_DISPONIBLES;
+            }
         } else {
-            // Desactivar el botón
-            statsBtn.style.opacity = '0.5';
-            statsBtn.style.pointerEvents = 'none';
-            statsBtn.style.cursor = 'not-allowed';
-            statsBtn.title = CONFIG.MENSAJES.ESTADISTICAS_NO_DISPONIBLES;
+            // Desactivar el botón solo si no está desactivado
+            if (statsBtn.style.opacity !== '0.5') {
+                statsBtn.style.opacity = '0.5';
+                statsBtn.style.pointerEvents = 'none';
+                statsBtn.style.cursor = 'not-allowed';
+                statsBtn.title = CONFIG.MENSAJES.ESTADISTICAS_NO_DISPONIBLES;
+            }
         }
     }
 }
@@ -239,15 +250,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Inicializar y configurar intervalos
     actualizarBadgeEvento();
-    setInterval(actualizarBadgeEvento, CONFIG.INTERVALO_BADGE);
+    const badgeInterval = setInterval(actualizarBadgeEvento, CONFIG.INTERVALO_BADGE);
 
     actualizarEstadoEstadisticas();
-    setInterval(actualizarEstadoEstadisticas, CONFIG.INTERVALO_ESTADISTICAS);
+    const statsInterval = setInterval(actualizarEstadoEstadisticas, CONFIG.INTERVALO_ESTADISTICAS);
 
     mostrarTwitchSiEsHora();
-    setInterval(mostrarTwitchSiEsHora, CONFIG.INTERVALO_TWITCH);
+    const twitchInterval = setInterval(mostrarTwitchSiEsHora, CONFIG.INTERVALO_TWITCH);
 
     // Inicializar el contador regresivo inmediatamente y actualizarlo cada segundo
     updateCountdown();
-    setInterval(updateCountdown, CONFIG.INTERVALO_COUNTDOWN);
+    const countdownInterval = setInterval(updateCountdown, CONFIG.INTERVALO_COUNTDOWN);
+
+    // Limpiar intervalos cuando la página se descarga
+    window.addEventListener('beforeunload', function() {
+        clearInterval(badgeInterval);
+        clearInterval(statsInterval);
+        clearInterval(twitchInterval);
+        clearInterval(countdownInterval);
+    });
 }); 
