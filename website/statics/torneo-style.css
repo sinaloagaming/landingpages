@@ -157,12 +157,11 @@ body::before {
 
 /* Banner del torneo */
 .banner-container {
-    position: relative;
-    margin-bottom: 40px;
+    width: 100%;
+    margin: 20px 0;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
 }
 
 .torneo-banner {
@@ -1147,5 +1146,36 @@ body::before {
         font-size: 0.8rem;
         padding: 8px 12px;
         margin-top: 10px;
+    }
+}
+
+.stats-disclaimer {
+    background: linear-gradient(135deg, #ff9800, #ff5722);
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    animation: pulseWarning 2s infinite;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+}
+
+.stats-disclaimer::before {
+    content: '⚠️';
+    margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+    .stats-disclaimer {
+        font-size: 0.9em;
+        padding: 12px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-disclaimer {
+        font-size: 0.8em;
+        padding: 10px 12px;
     }
 }
