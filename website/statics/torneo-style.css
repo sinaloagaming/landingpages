@@ -682,7 +682,7 @@ body::before {
 
     /* Banner más pequeño en móvil */
     .banner-container {
-        max-height: 200px;
+        max-height: 500px;
     }
 
     .torneo-banner {
@@ -738,7 +738,7 @@ body::before {
 
     /* Banner aún más pequeño en móviles pequeños */
     .banner-container {
-        max-height: 150px;
+        max-height: 650px;
         margin-bottom: 30px;
     }
 
@@ -1177,5 +1177,55 @@ body::before {
     .stats-disclaimer {
         font-size: 0.8em;
         padding: 10px 12px;
+    }
+}
+
+.iframe-scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 12px;
+    background: #181828;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+.iframe-scroll-container iframe {
+    min-width: 900px;
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    border-radius: 12px;
+    background: #fff;
+    height: 1400px !important;
+}
+.stats-scroll-hint {
+    display: none;
+    text-align: center;
+    color: #ff9800;
+    font-size: 1em;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+@media (max-width: 1024px) {
+    .iframe-scroll-container iframe {
+        min-width: 700px;
+        height: 1200px !important;
+    }
+}
+@media (max-width: 768px) {
+    .iframe-scroll-container iframe {
+        min-width: 480px;
+        height: 1000px !important;
+    }
+    .stats-scroll-hint {
+        display: block;
+    }
+}
+@media (max-width: 480px) {
+    .iframe-scroll-container iframe {
+        min-width: 350px;
+        height: 800px !important;
+    }
+    .stats-scroll-hint {
+        font-size: 0.95em;
     }
 }
