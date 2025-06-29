@@ -74,13 +74,85 @@ landingpages/
 
 ## Despliegue con Docker
 
-```sh
-docker-compose up -d
+### Configuración actual
+Este proyecto usa NGINX en Docker para servir el sitio estático desde la carpeta `website/`.
+
+### Archivos de configuración
+
+#### Dockerfile
+```dockerfile
+FROM nginx:alpine
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY website/ /usr/share/nginx/html
+
+EXPOSE 80
 ```
-Esto levanta:
-- Web server NGINX (landing page)
-- Jenkins (CI/CD)
-- PostgreSQL (base de datos)
+
+#### nginx.conf
+```nginx
+server {
+    listen 80;
+    server_name _;
+
+    root /usr/share/nginx/html;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+```
+
+#### docker-compose.yml
+```yaml
+services:
+  web:
+    build: .
+    container_name: sinaloa-landing
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+```
+
+### Comandos de despliegue
+
+1. **Detener contenedores existentes (si los hay):**
+   ```bash
+   docker-compose down
+   ```
+
+2. **Construir la imagen:**
+   ```bash
+   docker-compose build
+   ```
+
+3. **Levantar el contenedor:**
+   ```bash
+   docker-compose up -d
+   ```
+
+4. **Acceder al sitio:**
+   Abre [http://localhost:8080](http://localhost:8080) en tu navegador.
+
+### Comandos útiles
+
+- **Ver logs del contenedor:**
+  ```bash
+  docker-compose logs web
+  ```
+
+- **Detener el contenedor:**
+  ```bash
+  docker-compose down
+  ```
+
+- **Reconstruir después de cambios:**
+  ```bash
+  docker-compose down
+  docker-compose build --no-cache
+  docker-compose up -d
+  ```
 
 ## SEO y optimización
 
