@@ -34,6 +34,7 @@ Landing page oficial de la comunidad **Sinaloa Gaming**.
 - Fuentes sans-serif en todo el sitio
 - CSS centralizado en `styles.css`
 - Página especial para el Torneo Fortnite
+- Página especial para el Torneo FC25
 - Sitemap y robots.txt para buscadores
 - Listo para despliegue en Docker (NGINX), Jenkins y PostgreSQL
 - Recomendaciones para build y optimización
@@ -46,10 +47,18 @@ landingpages/
 ├── styles.css
 ├── torneofortnite/
 │   └── index.html
+├── torneofc25/
+│   └── index.html
 ├── statics/
 │   ├── logo.png
-│   └── torneofortnite/
-│       └── image.png
+│   ├── torneofortnite/
+│   │   └── image.png
+│   ├── torneofc25/
+│   │   ├── bannerfc25_500.png
+│   │   ├── bannerfc25_800.png
+│   │   ├── bannerfc25_1000.png
+│   │   ├── bannerfc25_hr.png
+│   │   └── bannerfc25_screen.png
 │   └── favicon/
 │       ├── favicon.ico
 │       ├── favicon-16x16.png

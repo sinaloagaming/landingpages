@@ -6,23 +6,23 @@
     <title>Torneo FC25 - Sinaloa Gaming</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="¡Regístrate al Torneo FC25 de Sinaloa Gaming! Vive la experiencia y compite con los mejores.">
-    <meta name="keywords" content="torneo fc25, sinaloa gaming, gaming sinaloa, fc25 tournament, esports">
+    <meta name="description" content="¡Regístrate al Torneo FC25 de Sinaloa Gaming! Vive la experiencia y compite con los mejores jugadores de EA FC25.">
+    <meta name="keywords" content="torneo fc25, sinaloa gaming, gaming sinaloa, fc25 tournament, esports, fifa, ea fc25">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Sinaloa Gaming">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Torneo FC25 - Sinaloa Gaming">
-    <meta property="og:description" content="¡Regístrate al Torneo FC25 de Sinaloa Gaming! Vive la experiencia y compite con los mejores.">
-    <meta property="og:image" content="https://www.sinaloagaming.com/statics/logo.png">
+    <meta property="og:description" content="¡Regístrate al Torneo FC25 de Sinaloa Gaming! Vive la experiencia y compite con los mejores jugadores de EA FC25.">
+    <meta property="og:image" content="https://www.sinaloagaming.com/statics/torneofc25/bannerfc25_800.png">
     <meta property="og:url" content="https://www.sinaloagaming.com/torneofc25/">
     <meta property="og:type" content="event">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Torneo FC25 - Sinaloa Gaming">
-    <meta name="twitter:description" content="¡Regístrate al Torneo FC25 de Sinaloa Gaming! Vive la experiencia y compite con los mejores.">
-    <meta name="twitter:image" content="https://www.sinaloagaming.com/statics/logo.png">
+    <meta name="twitter:description" content="¡Regístrate al Torneo FC25 de Sinaloa Gaming! Vive la experiencia y compite con los mejores jugadores de EA FC25.">
+    <meta name="twitter:image" content="https://www.sinaloagaming.com/statics/torneofc25/bannerfc25_800.png">
 
     <link rel="stylesheet" href="../statics/torneo-style.css">
 
@@ -50,21 +50,7 @@
 <body>
     <!-- Partículas flotantes de fondo -->
     <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
+        <div class="particle" v-for="n in 15" :key="n"></div>
     </div>
 
     <!-- Botón de regreso -->
@@ -78,12 +64,7 @@
     </div>
 
     <main class="torneo-container">
-        <div class="tournament-announcement" style="margin-bottom: 24px;">
-            <span class="announcement-badge">AVISO</span>
-            <span class="announcement-title">Esta página es una <span class="highlight-red">PRUEBA</span></span>
-        </div>
         <div class="torneo-content">
-
             <!-- Título principal -->
             <header class="torneo-header">
                 <h1 class="torneo-title">
@@ -92,6 +73,11 @@
                 </h1>
                 <div class="subtitle">Sinaloa Gaming Championship</div>
             </header>
+
+            <!-- Banner del torneo -->
+            <div class="banner-container">
+                <img src="../statics/torneofc25/bannerfc25_800.png" alt="Banner Torneo FC25" class="torneo-banner">
+            </div>
 
             <!-- Información principal -->
             <div class="torneo-info">
@@ -111,21 +97,41 @@
                             Recomendamos abrir el registro en una ventana aparte para mejor experiencia.
                         </span>
                         <br>
-                        <a href="https://play.toornament.com/es/tournaments/2245505538363078655/" target="_blank" rel="noopener" class="torneo-btn" style="margin-top: 8px; display: inline-block;">
+                        <a href="https://play.toornament.com/es/tournaments/2246739383885295615/" target="_blank" rel="noopener" class="torneo-btn" style="margin-top: 8px; display: inline-block;">
                             Abrir registro en otra pestaña
                         </a>
                     </div>
                     <div class="iframe-scroll-container" style="margin: 0 auto; max-width: 100%">
-                        <iframe src="https://play.toornament.com/es/tournaments/2245505538363078655/" frameborder="0" style="width:100%; min-height:900px; border-radius:16px; background:#fff;"></iframe>
+                        <iframe src="https://play.toornament.com/es/tournaments/2246739383885295615/" frameborder="0" style="width:100%; min-height:900px; border-radius:16px; background:#fff;"></iframe>
                     </div>
+                </div>
+
+                <!-- Hashtags -->
+                <div class="hashtags">
+                    <span class="hashtag">#fc25</span>
+                    <span class="hashtag">#culiacan</span>
+                    <span class="hashtag">#gaming</span>
+                    <span class="hashtag">#mazatlán</span>
+                    <span class="hashtag">#fifa</span>
+                    <span class="hashtag">#sinaloa</span>
+                    <span class="hashtag">#gamer</span>
+                    <span class="hashtag">#videojuegos</span>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer con fecha y hora de actualización -->
     <footer style="text-align: center; margin-top: 20px; font-size: 0.9em; color: #666; font-family: Arial, sans-serif; padding: 10px; border-top: 1px solid #eee;">
         Updated: <span id="update-time">14/Jun/2025 @ 4:19 PM Americas/Mazatlan</span>
     </footer>
+
+    <script>
+        // Actualiza el footer con la fecha y hora actuales (en la zona horaria de Mazatlan)
+        (function() {
+            const updateTime = new Date().toLocaleString("en-US", { timeZone: "America/Mazatlan" });
+            document.getElementById("update-time").textContent = updateTime.replace(",", " @");
+        })();
+    </script>
 </body>
 </html> 
