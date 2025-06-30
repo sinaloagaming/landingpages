@@ -4,40 +4,27 @@
 
 # Sinaloa Gaming Landing Page
 
-Landing page oficial de la comunidad **Sinaloa Gaming**.
-
----
-
-<p align="center">
-  <a href="https://instagram.com/sinaloagaming" target="_blank">
-    <img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white" alt="Instagram">
-  </a>
-  <a href="https://facebook.com/sinaloaesportsgaming" target="_blank">
-    <img src="https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white" alt="Facebook">
-  </a>
-  <a href="https://twitch.tv/sinaloagamingesports" target="_blank">
-    <img src="https://img.shields.io/badge/Twitch-%239146FF.svg?style=for-the-badge&logo=Twitch&logoColor=white" alt="Twitch">
-  </a>
-  <a href="https://discord.gg/E8ffQxpaAV" target="_blank">
-    <img src="https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=Discord&logoColor=white" alt="Discord">
-  </a>
-</p>
-
----
+Sitio web estático para la comunidad Sinaloa Gaming, con torneos, resultados, video de finales y secciones visuales modernas.
 
 ## Características
+- Sección destacada para el torneo activo (FC25) con banner, botón de inscripción y emojis.
+- Sección separada para torneos pasados (Fortnite) con video de la final y botón de resultados.
+- Barra de tags con palabras clave e iconos para reforzar la identidad gamer y de comunidad.
+- Footers automáticos con fecha y hora de actualización en todas las páginas.
+- Diseño responsive y visualmente atractivo.
 
-- Diseño responsive y moderno
-- Enlaces a redes sociales (Twitch, Discord, Instagram, Facebook)
-- Optimización SEO y meta etiquetas para redes sociales (Open Graph, Twitter Cards)
-- Accesibilidad y buenas prácticas web
-- Fuentes sans-serif en todo el sitio
-- CSS centralizado en `styles.css`
-- Página especial para el Torneo Fortnite
-- Página especial para el Torneo FC25
-- Sitemap y robots.txt para buscadores
-- Listo para despliegue en Docker (NGINX), Jenkins y PostgreSQL
-- Recomendaciones para build y optimización
+## Estructura
+- `/website/index.html`: Página principal con torneos, video, tags y redes sociales.
+- `/website/torneofc25/index.html`: Página dedicada al torneo FC25.
+- `/website/torneofortnite/index.html`: Página dedicada al torneo de Fortnite.
+- `/website/torneofortnite/estadisticas.html`: Resultados del torneo de Fortnite.
+
+## Despliegue
+El sitio se sirve como estático usando NGINX en Docker. Ver instrucciones en este mismo archivo para build y despliegue.
+
+---
+
+¡Sinaloa Gaming, la comunidad gamer de Sinaloa! 🏆🎮🌎
 
 ## Estructura del proyecto
 

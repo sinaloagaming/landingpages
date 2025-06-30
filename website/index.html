@@ -145,29 +145,76 @@
 
         </div>
 
-        <!-- Botones de acción -->
-        <div class="action-buttons">
-            <!-- Banner del torneo FC25 -->
-            <a href="https://bit.ly/sg_fc25" target="_blank" rel="noopener noreferrer" class="torneo-banner-link">
-                <img src="statics/torneofc25/bannerfc25_800.png" alt="Torneo FC25 - Sinaloa Gaming" class="torneo-banner" style="max-width: 100%; height: auto; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
-            </a>
-            
-            <a class="torneo-btn stats-btn" href="torneofortnite/score/">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M3 3v18h18"/>
-                    <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
-                </svg>
-                Ver Estadísticas Torneo 14 de Junio
-            </a>
+        <section class="active-tournament">
+            <h2 class="announcement-title">
+                <span class="highlight-red">🏆 TORNEO</span> <span class="highlight-purple">FC25 ⚽</span>
+            </h2>
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6ZAuZ-LSskKmgTJmyAQgxIPZkyB3QMyR29LCbmQRCAffycg/viewform" target="_blank" rel="noopener noreferrer" class="torneo-banner-link" style="width: 100%; max-width: 600px;">
+                    <img src="statics/torneofc25/bannerfc25_800.png" alt="Torneo FC25 - Sinaloa Gaming" class="torneo-banner" style="max-width: 100%; height: auto; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+                </a>
+                <p class="announcement-text" style="font-size: 1.15rem; margin-bottom: 10px;">
+                    🎮 ¡Demuestra tu nivel en <b>Sinaloa Gaming</b>! <span style="font-size:1.3em;">🌟</span><br>
+                    Compite por la gloria y premios exclusivos en nuestro torneo de fútbol virtual. <span style="font-size:1.2em;">🕹️</span>
+                </p>
+                <div class="tournament-actions">
+                    <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSe6ZAuZ-LSskKmgTJmyAQgxIPZkyB3QMyR29LCbmQRCAffycg/viewform" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
+                        🟢 ¡Inscríbete ahora!
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Torneos Pasados -->
+        <section class="past-tournament">
+            <h3 class="section-title">Revive Nuestro Último Torneo: Fortnite</h3>
+            <div class="video-container">
+                <iframe
+                    src="https://clips.twitch.tv/embed?clip=FaithfulCrunchyOstrichPeoplesChamp-11PDCtmeaOFSyIEl&parent=www.sinaloagaming.com"
+                    frameborder="0"
+                    allowfullscreen="true"
+                    scrolling="no"
+                    height="360"
+                    width="640">
+                </iframe>
+            </div>
+            <div class="tournament-actions">
+                <a class="btn btn-secondary" href="torneofortnite/score/">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
+                    📊 Ver Resultados del Torneo de Fortnite - 14 de Junio de 2025
+                </a>
+            </div>
+        </section>
+
+        <div class="quick-info">
+            <span class="info-tag">🏆 Torneos</span>
+            <span class="info-tag">🎮 Gaming</span>
+            <span class="info-tag">🌎 Comunidad</span>
+            <span class="info-tag">⚡ Competencia</span>
+            <span class="info-tag">🥇 Premios</span>
+            <span class="info-tag">👥 Equipos</span>
+            <span class="info-tag">📅 Eventos</span>
+            <span class="info-tag">🏅 Ranking</span>
+            <span class="info-tag">🕹️ Consola</span>
+            <span class="info-tag">💬 Discord</span>
+            <span class="info-tag">🇲🇽 Sinaloa</span>
         </div>
+
+        
     </main>
 
-    <!-- Agregar footer con fecha y hora de actualización -->
-    <footer style="text-align: center; margin-top: 20px; font-size: 0.9em; color: #666; font-family: Arial, sans-serif; padding: 15px; border-top: 1px solid #eee;">
-        <div style="margin-bottom: 5px;">© 2025 Sinaloa Gaming. Todos los derechos reservados.</div>
-        <div style="font-size: 0.85em;">Última actualización: <span id="update-time">14/Jun/2025 @ 11:14 PM Americas/Mazatlan</span></div>
+    <!-- Footer con fecha y hora de actualización -->
+    <footer style="text-align: center; margin-top: 30px; font-size: 0.95em; color: #ccc; font-family: Arial, sans-serif; padding: 15px; border-top: 1px solid #333; background: rgba(20,24,48,0.7); border-radius: 0 0 16px 16px;">
+        Updated: <span id="update-time">14/Jun/2025 @ 4:19 PM Americas/Mazatlan</span>
     </footer>
-    <script src="statics/torneo.js"></script>
+    <script>
+        // Actualiza el footer con la fecha y hora actuales (en la zona horaria de Mazatlan)
+        (function() {
+            const updateTime = new Date().toLocaleString("en-US", { timeZone: "America/Mazatlan" });
+            document.getElementById("update-time").textContent = updateTime.replace(",", " @");
+        })();
+    </script>
 
 </body>
 
