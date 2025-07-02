@@ -4,3 +4,5 @@ build/
 .env
 .DS_Store
 .parcel-cache/
+*.log
+sinaloa-gaming-b7e32038d6fb.json
