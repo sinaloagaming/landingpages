@@ -136,3 +136,7 @@ Actualmente puedes encontrarnos en:
 * Agrega aviso de prueba a la página de torneo FC25
 * Agrega página de torneo FC25 con registro Toornament y visuales consistentes
 * Refactor: Clean up landing page and improve UI elements 
+
+## Dependencias
+
+Consulta el archivo [dependencies.md](./dependencies.md) para ver la lista completa de herramientas recomendadas y cómo instalarlas en Windows, MacOS y Linux. 
